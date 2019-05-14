@@ -1,0 +1,22 @@
+{% extends "blog/base.html" %}
+{% block content %}
+    <div style="margin-left:32%;margin-top:50px;">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <small>
+            <a href="{% url 'register' %}">Tao tk |</a>
+            <a href="{% url 'password_reset' %}">Quen mat khau?</a>
+        </small>
+        
+        <input type="submit" value="Login" class="btn btn-outline-success ml-2">
+        <p style="margin-left:10%;">-- OR --</p>
+        <a href="{% url 'social:begin' 'github' %}">
+            <button type="button" name="button" class="btn btn-primary mr-5">Github</button>
+        </a>
+        <a href="{% url 'social:begin' 'google-oauth2' %}">
+            <button type="button" name="button" class="btn btn-danger">Google+</button>
+        </a>
+    </form> 
+    </div>   
+{% endblock %}
